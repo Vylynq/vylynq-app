@@ -4,3 +4,4 @@ plotly
 streamlit-extras
 streamlit-player
 streamlit-extras
+streamlit-lottie
