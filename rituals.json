@@ -1,0 +1,22 @@
+{
+  "Workout": {
+    "streak": 1,
+    "last_completed": "2025-06-02",
+    "total_completed": 1
+  },
+  "Drink water": {
+    "streak": 1,
+    "last_completed": "2025-06-02",
+    "total_completed": 1
+  },
+  "meeting": {
+    "streak": 1,
+    "last_completed": "2025-06-02",
+    "total_completed": 1
+  },
+  "Water": {
+    "streak": 1,
+    "last_completed": "2025-06-02",
+    "total_completed": 1
+  }
+}

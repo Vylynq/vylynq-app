@@ -1,42 +1,60 @@
 import streamlit as st
-from streamlit_extras.metric_cards import style_metric_cards
 
-st.set_page_config(
-    page_title="Vylynq Command Center",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.set_page_config(page_title="Vylynq Mobile", layout="centered")
 
-# Dark theme styles
+# ----- Style -----
 st.markdown("""
-    <style>
-    body, .stApp {
-        background-color: #0e0e0e;
-        color: #ffffff;
-        font-family: 'Segoe UI', sans-serif;
-    }
-    .block-container {
-        padding-top: 3rem;
-    }
-    h1, h2, h3 {
-        color: #f5b5ff;
-    }
-    .stButton>button {
-        background-color: #9f4eff;
-        color: white;
-        border-radius: 12px;
-        padding: 0.5em 1.2em;
-    }
-    </style>
+<style>
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    border-top: 1px solid #444;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem 0;
+    z-index: 1000;
+}
+.bottom-nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-align: center;
+}
+.bottom-nav a:hover {
+    color: white;
+}
+.bottom-nav .emoji {
+    font-size: 1.5rem;
+    display: block;
+}
+.block-container {
+    padding-bottom: 80px;
+}
+</style>
 """, unsafe_allow_html=True)
 
-st.sidebar.markdown("## 🧭 Navigate")
-st.sidebar.success("Choose your ritual zone:")
+# ----- Routing -----
+page = st.query_params.get("page", "dashboard")
 
-st.title("✨ VYLYNQ — Your Command Center")
+# ----- Content Based on Page -----
+if page == "dashboard":
+    st.title("🏠 Vylynq Dashboard")
+    st.info("This would normally show your XP, streaks, stats, etc.")
+elif page == "habit":
+    st.title("🎯 Habit Tracker")
+    st.info("Redirect to your actual habit_tracker.py or replicate content.")
+elif page == "focus":
+    st.title("🧠 Focus Zone")
+    st.info("Redirect or display content from focus_zone.py here.")
+
+# ----- Bottom Nav -----
 st.markdown("""
-Welcome to your **Safe Space**, **Hype Space**, and **Power Space**.  
-Track rituals. Store your truth. Run your world.
-
-💬 *“Damn. That’s Me.”*
-""")
+<div class='bottom-nav'>
+    <a href='?page=dashboard'><span class='emoji'>🏠</span>Home</a>
+    <a href='?page=habit'><span class='emoji'>🎯</span>Habits</a>
+    <a href='?page=focus'><span class='emoji'>🧠</span>Focus</a>
+</div>
+""", unsafe_allow_html=True)
